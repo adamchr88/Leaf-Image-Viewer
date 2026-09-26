@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.MainController">
+
+    <top>
+        <VBox spacing="0">
+
+            <MenuBar>
+                <Menu text="File">
+                    <MenuItem text="Open Image" onAction="#handleOpenImage"/>
+                    <MenuItem text="Exit" onAction="#handleExit"/>
+                </Menu>
+
+                <Menu text="View">
+                    <CheckMenuItem fx:id="showNumbersMenuItem"
+                                   text="Show Cluster Numbers"
+                                   selected="true"
+                                   onAction="#handleToggleNumbers"/>
+                    <MenuItem text="Show Random Sets" onAction="#handleShowRandomSets"/>
+                    <MenuItem text="Reset B/W" onAction="#handleResetBlackWhite"/>
+                </Menu>
+            </MenuBar>
+
+            <HBox spacing="10" style="-fx-padding: 10;">
+                <Button text="Open Image" onAction="#handleOpenImage"/>
+                <Button text="Convert to B/W" onAction="#handleConvert"/>
+                <Button text="Show Random Sets" onAction="#handleShowRandomSets"/>
+                <Button text="Reset B/W" onAction="#handleResetBlackWhite"/>
+                <Button text="Animate Path" onAction="#handleAnimatePath"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <HBox spacing="20" style="-fx-padding: 10;">
+
+            <Pane fx:id="imagePane" prefWidth="420" prefHeight="420">
+                <ImageView fx:id="originalImageView"
+                           preserveRatio="true"
+                           fitWidth="420"/>
+            </Pane>
+
+            <ImageView fx:id="bwImageView"
+                       preserveRatio="true"
+                       fitWidth="420"/>
+
+        </HBox>
+    </center>
+
+    <right>
+        <VBox spacing="8" style="-fx-padding: 10; -fx-pref-width: 260;">
+
+            <Label text="Leaf Colour Selection"/>
+            <CheckBox fx:id="yellowCheckBox" text="Yellow" selected="true"/>
+            <CheckBox fx:id="orangeCheckBox" text="Orange" selected="true"/>
+            <CheckBox fx:id="redCheckBox" text="Red" selected="true"/>
+            <CheckBox fx:id="brownCheckBox" text="Brown" selected="true"/>
+
+            <Label text="Hue Min"/>
+            <HBox spacing="8">
+                <Slider fx:id="hueMinSlider"
+                        min="0" max="360" value="8"
+                        blockIncrement="1"
+                        onMouseDragged="#handleSettingsChanged"
+                        onMouseReleased="#handleSettingsChanged"/>
+                <Label fx:id="hueMinValueLabel" text="8"/>
+            </HBox>
+
+            <Label text="Hue Max"/>
+            <HBox spacing="8">
+                <Slider fx:id="hueMaxSlider"
+                        min="0" max="360" value="65"
+                        blockIncrement="1"
+                        onMouseDragged="#handleSettingsChanged"
+                        onMouseReleased="#handleSettingsChanged"/>
+                <Label fx:id="hueMaxValueLabel" text="65"/>
+            </HBox>
+
+            <Label text="Saturation Min"/>
+            <HBox spacing="8">
+                <Slider fx:id="satMinSlider"
+                        min="0" max="1" value="0.18"
+                        blockIncrement="0.01"
+                        onMouseDragged="#handleSettingsChanged"
+                        onMouseReleased="#handleSettingsChanged"/>
+                <Label fx:id="satMinValueLabel" text="0.18"/>
+            </HBox>
+
+            <Label text="Brightness Min"/>
+            <HBox spacing="8">
+                <Slider fx:id="brightMinSlider"
+                        min="0" max="1" value="0.28"
+                        blockIncrement="0.01"
+                        onMouseDragged="#handleSettingsChanged"
+                        onMouseReleased="#handleSettingsChanged"/>
+                <Label fx:id="brightMinValueLabel" text="0.28"/>
+            </HBox>
+
+            <Label text="Minimum Cluster Size"/>
+            <HBox spacing="8">
+                <Slider fx:id="minClusterSlider"
+                        min="1" max="1000" value="120"
+                        blockIncrement="1"
+                        onMouseDragged="#handleSettingsChanged"
+                        onMouseReleased="#handleSettingsChanged"/>
+                <Label fx:id="minClusterValueLabel" text="120"/>
+            </HBox>
+
+            <Label text="Maximum Cluster Size"/>
+            <HBox spacing="8">
+                <Slider fx:id="maxClusterSlider"
+                        min="100" max="20000" value="20000"
+                        blockIncrement="10"
+                        onMouseDragged="#handleSettingsChanged"
+                        onMouseReleased="#handleSettingsChanged"/>
+                <Label fx:id="maxClusterValueLabel" text="20000"/>
+            </HBox>
+
+        </VBox>
+    </right>
+
+    <bottom>
+        <VBox spacing="6" style="-fx-padding: 10;">
+            <Label fx:id="clusterCountLabel" text="Visible clusters found: 0"/>
+            <Label fx:id="clusterInfoLabel" text="Click a cluster to see its size"/>
+        </VBox>
+    </bottom>
+
+</BorderPane>
