@@ -10,7 +10,7 @@ It also includes a pathfinding feature that creates and animates a route between
 
 ## Screenshot
 
-![LeafVision Screenshot](screenshots/leafvision.png)
+![LeafVision Screenshot](autumn1.png)
 
 ---
 
