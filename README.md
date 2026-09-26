@@ -102,3 +102,61 @@ src/
 └── org/example/
     ├── LeafVisionApp.java
     └── MainController.java
+```
+## Key Algorithms and Data Structures
+
+### Union-Find
+
+Union-Find is used to group neighbouring leaf pixels into connected clusters.
+
+The implementation includes:
+
+- Path compression
+- Union by size
+
+### Nearest-Neighbour TSP
+
+A nearest-neighbour approach is used to generate a path through the detected leaves.
+
+Starting from a selected leaf, the algorithm repeatedly travels to the closest unvisited leaf until every visible leaf has been visited.
+
+---
+
+## What I Learned
+
+Through this project, I developed experience with:
+
+- Building desktop applications using JavaFX
+- Processing image pixel data
+- Working with hue, saturation and brightness values
+- Implementing Union-Find
+- Working with connected components and clustering
+- Implementing pathfinding algorithms
+- Visualising algorithms through a graphical interface
+- Structuring a Java project across multiple classes
+- Working with Java collections including lists, sets and maps
+- Connecting application logic to a JavaFX user interface
+
+---
+
+## Skills Demonstrated
+
+- Java programming
+- JavaFX development
+- Object-Oriented Programming
+- Data structures and algorithms
+- Image processing
+- Union-Find
+- Pathfinding
+- GUI development
+- Problem solving
+
+---
+
+## Author
+
+**Adam Christensen**
+
+Computer Science Student
+
+GitHub: [adamchr88](https://github.com/adamchr88)
